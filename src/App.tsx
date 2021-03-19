@@ -8,7 +8,7 @@ export function App() {
   return (
     <>
       <Header />
-      <Dashboard />
+      <Dashboard />      
       <GlobalStyle />  
 
     </>

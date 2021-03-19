@@ -1,3 +1,4 @@
-button: {
+button {
     filter: blur();
+    background: rgb(141, 30, 30);
 }

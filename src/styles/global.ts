@@ -9,8 +9,10 @@ export const GlobalStyle = createGlobalStyle`
         
         --blue-light: #6933FF;
         
-        --text-title:#363f5f;
+        --text-title:#363F5F;
         --text-body : #969cb3;
+
+        --background: #F0f2f5;
         
         --shape: #fff;
     }
@@ -53,7 +55,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     [disabled]{
-        opacity: 0.6;
+        /* Tudo oque estiver desabilitado */
+        opacity: 0.6; /*Para ficar mais claro*/ 
         cursor: not-allowed;
     }
 `
