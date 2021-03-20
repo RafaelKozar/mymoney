@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
+import { api } from "../../services/api";
 import { Container } from "./styles";
 
 export function TransactionsTalbe(){
     useEffect(() => {
-        fetch('http://localhost:3000/api/transactions')
-            .then(r => r.json())
+        api('/transactions')            
             .then(r => console.log(r));       
 
     }, [])
