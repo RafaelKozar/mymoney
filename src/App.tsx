@@ -5,6 +5,7 @@ import { Header } from './components/Header/Header';
 import { createServer } from 'miragejs';
 import { GlobalStyle } from './styles/global'
 import { NewTransactionsModal } from './components/NewTransactionsModal/NewTransactionsModal';
+import { TransactionsProvider } from './TransactionsContext';
 
 // createServer({
 //   routes() {
@@ -40,7 +41,7 @@ export function App() {
   }
 
   return (
-    <>
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />      
       <NewTransactionsModal 
@@ -49,7 +50,7 @@ export function App() {
 
       <GlobalStyle />
 
-    </>
+    </TransactionsProvider>
   );
 }
 
