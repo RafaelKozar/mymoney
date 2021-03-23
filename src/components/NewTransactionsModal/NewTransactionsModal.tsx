@@ -26,14 +26,21 @@ export function NewTransactionsModal({
   const [type, setType] = useState('deposit')
 
   //Handle => patter q quer dizer uma ação do usuário
-  function handleCreateNewTransaction(event: FormEvent) {
+  async function handleCreateNewTransaction(event: FormEvent) {
     event.preventDefault();
-    createTransaction({
+
+    await createTransaction({
       title, 
       amount,
       category, 
       type
-    })    
+    });
+    
+    settitle('');
+    setAmount(0);
+    setCategory('');
+    setType('deposit');
+    onRequestClose();
   }
 
   return (
