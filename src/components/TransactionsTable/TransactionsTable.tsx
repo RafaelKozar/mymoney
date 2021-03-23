@@ -1,14 +1,25 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Container } from "./styles";
 
-export function TransactionsTalbe(){
+interface Transaction {
+    id : number;
+    title : string;
+    amount : number;
+    type : string;
+    category : string;
+    createAt : string;
+}
+
+export function TransactionsTalbe() {
+    const [transactions, setTransactions] = useState<Transaction[]>([])
+
     useEffect(() => {
-        api('/transactions')            
-            .then(r => console.log(r));       
+        api('/transactions')
+            .then(response => setTransactions(response.data.transactions));
 
     }, [])
-    return(
+    return (
         <Container>
             <table>
                 <thead>
@@ -21,18 +32,15 @@ export function TransactionsTalbe(){
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td> Desenvolvimento de WebSite</td>
-                        <td className="deposit">R$ 5.000</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2021</td>
-                    </tr>
-                    <tr >
-                        <td> Desenvolvimento de WebSite</td>
-                        <td className="withdraw">R$-1.000</td>
-                        <td>Casa</td>
-                        <td>17/02/2021</td>
-                    </tr>              
+                    {transactions.map(transaction => (
+                        <tr key={transaction.id}>
+                            <td> {transaction.title}</td>
+                            <td className={transaction.type}>R$ {transaction.amount}</td>
+                            <td>{transaction.category}</td>
+                            <td>{transaction.createAt}</td>
+                        </tr>
+                    ))}
+
                 </tbody>
             </table>
         </Container>

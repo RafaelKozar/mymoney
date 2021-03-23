@@ -6,24 +6,24 @@ import { createServer } from 'miragejs';
 import { GlobalStyle } from './styles/global'
 import { NewTransactionsModal } from './components/NewTransactionsModal/NewTransactionsModal';
 
-createServer({
-  routes() {
-    this.namespace = 'api';
+// createServer({
+//   routes() {
+//     this.namespace = 'api';
 
-    this.get('/transactions', () => {
-      return [
-        {
-          id: 1,
-          title: 'Transaction 1',
-          amount: 400,
-          type: 'deposit',
-          category: 'Food',
-          createAt: new Date()
-        }
-      ]
-    });
-  }
-});
+//     this.get('/transactions', () => {
+//       return [
+//         {
+//           id: 1,
+//           title: 'Transaction 1',
+//           amount: 400,
+//           type: 'deposit',
+//           category: 'Food',
+//           createAt: new Date()
+//         }
+//       ]
+//     });
+//   }
+// });
 
 Modal.setAppElement('#root')
 
